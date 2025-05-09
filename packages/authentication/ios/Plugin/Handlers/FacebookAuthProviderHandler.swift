@@ -18,6 +18,7 @@ class FacebookAuthProviderHandler: NSObject {
         self.pluginImplementation = pluginImplementation
         #if RGCFA_INCLUDE_FACEBOOK
         loginManager = LoginManager()
+        // TODO: Firebase Auth project switching not implemented here
         #endif
         super.init()
     }

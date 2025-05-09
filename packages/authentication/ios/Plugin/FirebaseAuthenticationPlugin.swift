@@ -107,6 +107,14 @@ public class FirebaseAuthenticationPlugin: CAPPlugin, CAPBridgedPlugin {
         self.implementation = FirebaseAuthentication(plugin: self, config: firebaseAuthenticationConfig())
     }
 
+    @objc func setApp(_ call: CAPPluginCall) {
+        implementation?.useFirebaseApp(call)
+    }
+
+    @objc func getApp(_ call: CAPPluginCall) {
+        implementation?.currentFirebaseApp(call)
+    }
+
     @objc func applyActionCode(_ call: CAPPluginCall) {
         guard let oobCode = call.getString("oobCode") else {
             call.reject(errorOobCodeMissing)
